@@ -1,0 +1,103 @@
+Scenario 1:
+
+Create an algorithm that asks a user to enter a positive number repeatedly
+until the user enters a zero value, then determines and outputs the
+largest of the numbers that were input.
+
+Script:
+
+request numbers from the user
+if the number is greater than zero
+	store the number
+else
+	determine the largest stored number
+	print the largest stored number
+
+
+
+Scenario 2:
+
+Create an algorithm that requests a user to input their name and then
+stores their name in a variable called first_name. Subsequently, the
+algorithm should print out first_name along with the phrase “Hello,
+World”.
+
+Script:
+
+request the user to input their first name
+store their input into variable called "first_name"
+
+then
+	print variable "first_name" and "Hello, World"
+	
+
+
+Scenario 3:
+
+Create an algorithm that reads an arbitrary number of integers and then
+returns their arithmetic average.
+
+Script:
+
+set a variable that is the sum of integers equal to zero
+set counter of integers to zero
+
+loop 
+	read an integer 
+	add integer to the sum of integers
+	increase counter by one
+	stop when there are no more unread integers
+	
+then
+	divide the sum of integers by the counter to calculate average
+	
+return the average
+
+
+
+Scenario 4:
+
+Create an algorithm that reads a grocery list and prints out the products
+(in alphabetical order) that are still left to buy.
+
+Script:
+
+create three lists
+one that is a grocery list and set to zero
+one that is of already purchased items and set to zero
+one that is of items still left to buy and set to zero
+
+loop
+	read a grocery item name
+	add the item to grocery list
+	stop when there are no more unread grocery items
+	
+loop
+	read grocery list
+	add items that have been purchased already to already purchased list
+	stop when there are no more unread items
+	
+loop
+	read grocery list and already purchased item list
+	add item from grocery list that is not in the already purchased list to the list of items still left to buy
+	stop when there are no more groceries left to add to items still left to buy
+	
+sort list of grocery items still left to buy into alphabetical order
+	
+print the list of the items still left to buy
+
+
+
+Scenario 5:
+
+Create an algorthm using the flowchart (see "flowchart.jpg" file in "1 - Pseudo Code Task" folder).
+
+Script:
+
+read variables "X" and "Y"
+
+"S" is equal to the sum of "X" and "Y"
+"A" is equal to "S" divided by two
+"P" is equal to the product of "X" and "Y"
+
+print the values of "S", "A" and "P"
