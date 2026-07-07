@@ -34,6 +34,6 @@ while True:
             # Inform the user of the largest number in the list
             print(f"The largest number on the list is: {max(number_list)}.")
             
-    # Inform the user that input is not a positive integer and request another input
+    # Inform the user that their input is not a positive integer and request another input
     else:
         print("You have not entered a positive number. Please try again.")
