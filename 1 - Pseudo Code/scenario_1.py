@@ -4,6 +4,7 @@
 # until the user enters a zero value, then determines and outputs the
 # largest of the numbers that were input.
 
+
 # Create an empty list to store the numbers
 number_list = []
 
@@ -25,7 +26,7 @@ while True:
             number_list.append(number_input)
             
             # A check if the list is correctly storing the numbers 
-            print(number_list)
+            # print(number_list)
             
             # Inform the user that their positive integer has been added to the list
             print(f"'{number_input}' has been added to the list.")
@@ -33,6 +34,6 @@ while True:
             # Inform the user of the largest number in the list
             print(f"The largest number on the list is: {max(number_list)}.")
             
-    # Inform the user that that is not a positive integer and request another input
+    # Inform the user that input is not a positive integer and request another input
     else:
         print("You have not entered a positive number. Please try again.")
