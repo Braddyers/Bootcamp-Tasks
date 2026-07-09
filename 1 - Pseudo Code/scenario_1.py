@@ -10,9 +10,11 @@ number_list = []
 
 # Create a loop that will continue until the user enters 0 
 while True:
+
+    # Prompt the user to enter a positive number or 0 to stop
     number_input = input("Please enter a number > 0 or enter 0 to stop: ")
     
-    # Check if the input is an integer
+    # Check if the input is an integer, if so, convert it to an integer
     if number_input.isdigit():
         number_input = int(number_input)
         
@@ -28,7 +30,7 @@ while True:
             # A check if the list is correctly storing the numbers 
             # print(number_list)
             
-            # Inform the user that their positive integer has been added to the list
+            # Inform the user that the positive integer has been added to the list
             print(f"'{number_input}' has been added to the list.")
 
             # Inform the user of the largest number in the list
