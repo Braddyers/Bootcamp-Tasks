@@ -1,15 +1,14 @@
-# request that the user inputs their name
-# then output their name
-
+# Request that the user inputs their name
 user_name = input("Please enter your name: ")
+
+# Output their name
 print(user_name)
 
-# request that the user inputs their age
-# then output their age
-
+# Request that the user inputs their age
 user_age = input("Please enter your age: ")
+
+# Output their age
 print(user_age)
 
-# output the string "Hello World!"
-
+# Output the string "Hello World!"
 print("Hello World!")

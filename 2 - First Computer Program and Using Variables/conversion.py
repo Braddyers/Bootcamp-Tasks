@@ -1,4 +1,4 @@
-# set the given values to their respective given variables:
+# Set these values to their respective variables:
 # 99.23 to num1
 # 23 to num2
 # 150 to num3
@@ -20,7 +20,7 @@ num2 = float(num2)
 num3 = str(num3)
 string1 = int(string1)
 
-# output each variable on separate lines
+# Output each variable on separate lines
 
 print(num1)
 print(num2)
