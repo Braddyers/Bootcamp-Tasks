@@ -28,16 +28,19 @@ while True:
             number_list.append(number_input)
             
             # A check if the list is correctly storing the numbers 
-            print(number_list)
+            # print(number_list)
             
             # Inform the user that the positive integer has been added to the list
             print(f"'{number_input}' has been added to the list.")
 
             # Inform the user of the largest number in the list
             print(f"The largest number on the list is: {max(number_list)}.")
+
+        # Account for when "+" is entered as input, eg. +6 rather than 6
+        # It is still not counting as a positive number
             
-    # False boolean, not an integer
-    # Inform the user that their input is not a positive integer
+    # If input is not a positive integer,
+    # inform the user that their input is not a positive integer
     # Loop repeats
     else:
         print("You have not entered a positive number.")
