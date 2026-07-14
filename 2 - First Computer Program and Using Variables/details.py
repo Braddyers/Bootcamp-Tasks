@@ -1,4 +1,5 @@
 # Request user to input their name, age, house number and street name
+# Store the inputs into their respective variables
 name = input("Please enter your name: ")
 age = input("Please enter your age: ")
 house_number = input("Please enter your house number: ")
