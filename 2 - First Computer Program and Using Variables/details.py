@@ -4,5 +4,6 @@ age = input("Please enter your age: ")
 house_number = input("Please enter your house number: ")
 street_name = input("Please enter your street name: ")
 
-# Output a string that states the user's name, age, house number and street name
-print("You are {} and are {} years old. You live at house number {} on {}.".format(name, age, house_number, street_name))
+# Output the input data
+print(f"You are {name} and are {age} years old. You live at house " +
+      f"number {house_number} on {street_name}.")

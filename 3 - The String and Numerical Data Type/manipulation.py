@@ -1,5 +1,5 @@
 # Request the user to input a string
-str_manip = (input("What is the most famous monument in China? "))
+str_manip = (input("What is the ocean to the east of South Africa called? "))
 
 # Calculate the length of the string
 str_length = len(str_manip)
@@ -34,4 +34,5 @@ last_2_char = str_manip[-2:]
 five_letter_word = first_3_char + last_2_char
 
 # Output the new string
-print(f"The first three and last two characters of your answer combined is: {five_letter_word}")
+print(f"The first three and last two characters of your " +
+      f"answer combined is: {five_letter_word}")
