@@ -1,13 +1,16 @@
+# Load in math module to import math functions
 import math
 
-side_1 = float(input("Enter the length of the first side of a triangle: "))
-side_2 = float(input("Enter the length of the second side of a triangle: "))
-side_3 = float(input("Enter the length of the third side of a triangle: "))
+# Request user input for lengths of the sides of a triangle
+side1 = float(input("Enter the length of the first side of a triangle: "))
+side2 = float(input("Enter the length of the second side of a triangle: "))
+side3 = float(input("Enter the length of the third side of a triangle: "))
 
-s = (side_1 + side_2 + side_3) / 2
+# Calculate the semi-perimeter (s)
+s = (side1 + side2 + side3) / 2
 
-tri_area = math.sqrt(s * (s - side_1) * (s - side_2) * (s - side_3))
-# an error returned the first time I ran the area calculation: "name 'math' is not defined"
-# I looked up the problem online and found that I first needed to import the 'math' module to provide the needed mathematical function
-                     
-print(f"The area of the triangle is: {tri_area}")
+# Calculate the area of the triangle
+area1 = math.sqrt(s * (s - side1) * (s - side2) * (s - side3))
+
+# Output the area of the triangle             
+print(f"The area of the triangle is: {area1}")
