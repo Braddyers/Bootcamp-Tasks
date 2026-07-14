@@ -1,10 +1,21 @@
+# Request the user to input a string
+# Store the string in a variable called str_manip 
 str_manip = (input("What is the most famous monument in China? "))
 
+# Calculate the length of the string
+# Store the length in a variable called str_length
 str_length = len(str_manip)
-print(f"The length of the entered sentence is: {str_length}")
 
+# Output the length of the string
+print(f"The length of that sentence you entered is: {str_length}")
+
+# Find the last letter of the string
 last_letter = str_manip[-1]
+
+# Replace every instance of the last letter with an "@" symbol
 str_manip.replace(last_letter, "@")
+
+# 
 print(str_manip.replace(last_letter, "@"))
 
 last_3_inrev = str_manip[ :-4:-1]
