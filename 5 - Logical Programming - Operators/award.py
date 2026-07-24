@@ -1,4 +1,5 @@
-# Ask the user to enter all three event times (in minutes), then convert them into integers.
+# Ask the user to enter all three event times (in minutes), then convert them 
+# into integers
 swimming_t = int(input("Please enter the swimming event time (in minutes): "))
 cycling_t = int(input("Please enter the cycling event time (in minutes): "))
 running_t = int(input("Please enter the running event time (in minutes): "))
