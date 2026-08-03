@@ -7,66 +7,50 @@
 
 # Initialise variables
 total_user_num = 0
-i = 0
+input_count = 0
 user_num = 0
 
-# Define what is not an integer
-
-# Request input of a number, -1 to stop
+# Request input of a number, -1 to stop program
 user_num = input("Please enter a number (-1 to stop): ")
 
-def is_integer(user_num):
-    return user_num.lstrip('+-').replace('.', '', 1).isdigit()
-
-# if it is an integer, covert to float
+# Initiate while loop
 while True:
 
-    if is_integer(user_num):
+    # If input is a digit, convert to float
+    if user_num.lstrip('+-').replace('.', '', 1).isdigit():
         user_num = float(user_num)
-            
-        print(user_num, type(user_num))
-        print(total_user_num, type(total_user_num))
 
-
+        # if input is not -1
         if user_num != -1:
-            print("You have entered a valid number. Number added")
-            total_user_num += user_num
-            i += 1
 
+            # Output to user that the input was a valid number
+            print("You have entered a valid number.")
+
+            # Add input to total and increase the count
+            total_user_num += user_num
+            input_count += 1
+
+            # Variable check
             print(user_num, type(user_num))
             print(total_user_num, type(total_user_num))
-            print(i)
+            print(input_count)
 
-            user_num = input("Please enter another number(-1 to stop): ")
+            # Prompt for another input
+            user_num = input("Please enter another number (-1 to stop): ")
 
+        # If input = -1
         if user_num == -1:
+
+            # Output to user that the program will end 
             print("You have entered -1. The program will now end.")
-            print(f"The average of the numbers you have entered is: {total_user_num / i}")
+
+            # Calculate and output average of input numbers 
+            # excluding the -1 input
+            print("The average of the numbers you have entered " +
+                  f"is: {total_user_num / input_count}")
             break
-        
+
 # If not an integer, convert request another input
     else:
         print("That is not a number.")
         user_num = input("Please enter a number (-1 to stop): ")
-
-
-# A check for input
-#print(user_num)
-#print(type(user_num))
-
-# If = -1, end program
-
-
-
-# while user_num != -1:
-
-#     #check if it is an integer
-#     if user_num.isdigit():
-#         user_num = float(user_num)
-
-
-#     print("That is an integer")
-#     user_num = input("Please enter an integer (-1 to stop): ")
-    
-# else:
-#     print("You have entered -1. The program wil not end")
