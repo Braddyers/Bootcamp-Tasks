@@ -1,40 +1,44 @@
-# Initialize variables
+# Initialise variables
 total_user_num = 0
-count = 0
+input_count = 0
 user_num = 0
 
-# Ask the user to input a number
-user_num = (input("Please enter a number (-1 to stop): "))
+# Request input of a number, -1 to stop program
+user_num = input("Please enter a number (-1 to stop): ")
 
-# To make sure the user inputs a valid number:
-while not (user_num.replace('.', '', 1).isdigit() or (user_num.startswith('-') and user_num[1:].replace('.', '', 1).isdigit())):
-        print("Invalid input. Please enter a valid number.")
+# Initiate while loop
+while True:
+
+    # If input is a digit, convert to float
+    if user_num.lstrip('+-').replace('.', '', 1).isdigit():
+        user_num = float(user_num)
+
+        # if input is not -1
+        if user_num != -1:
+
+            # Output to user that the input was a valid number
+            print("You have entered a valid number.")
+
+            # Add input to total and increase the count
+            total_user_num += user_num
+            input_count += 1
+
+            # Prompt for another input
+            user_num = input("Please enter another number (-1 to stop): ")
+
+        # If input = -1
+        if user_num == -1:
+
+            # Output to user that the program will end 
+            print("You have entered -1. The program will now end.")
+
+            # Calculate and output average of input numbers 
+            # excluding the -1 input
+            print("The average of the numbers you have entered " +
+                  f"is: {total_user_num / input_count}")
+            break
+
+# If not an integer, convert request another input
+    else:
+        print("That is not a number.")
         user_num = input("Please enter a number (-1 to stop): ")
-
-# Convert valid input into a float
-user_num = float(user_num)
-
-# Need to repeat the loop until the user enters -1 (excludes -1 from the average calculation)
-while user_num != -1:
-
-    # Incrementing everytime another input is added
-    total_user_num += user_num
-    count += 1
-
-    #Ask the user to input a valid number again
-    user_num = (input("Please enter a number (-1 to stop): "))
-
-    #To make sure that the user inputs a valid number again
-    while not (user_num.replace('.', '', 1).isdigit() or (user_num.startswith('-') and user_num[1:].replace('.', '', 1).isdigit())):
-        print("Invalid input. Please enter a valid number.")
-        user_num = input("Please enter a number (-1 to stop): ")
-
-    #Convert valid input into a float
-    user_num = float(user_num)
-
-    #To prevent division by zero
-    if count > 0:
-        average_user_num = total_user_num / count
-
-#Display the average of inputs
-print("The average of your inputs is: " + str(average_user_num))
