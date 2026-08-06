@@ -1,13 +1,16 @@
-#Establish row variable to use in iteration calculations
-rows = 9
+# Define range, 9 rows of pattern, 9 iterations/rows
+for i in range(1, 10):
 
-#Range will be number of rows + 1
-for i in range(1, rows + 1):
-    
-    #First half of pattern until row 5 ("*" is added as iteration scales)
+    # Pattern increases by 1 until 5th row
     if i <= 5:
-        print("*" * i)
-    
-    #Second half of pattern from row 6 ("*" decreases in each subsequent iteration according to my calculated formula)
+        stars = i
+
+        # Output star symbol multiplied by row
+        print("*" * stars)
+
+    # Patterns decrease by 1 after 5th row, no. of stars = (no. of rows + 1) - i
     else:
-        print("*" * (rows - i + 1))
+        stars = 10 - i
+
+        # Output star symbol multiplied by (10 - row)
+        print("*" * stars)
