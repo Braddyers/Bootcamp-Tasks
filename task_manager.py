@@ -57,12 +57,13 @@ while True:
                             usernames, passwords = line.split(", ")                                         
                             usernames_passwords_dictionary[usernames] = passwords.replace("\n", "")
 
-                    #
+                    # While new user name input is in dictionary, prompt until it is not 
                     while new_username in usernames_passwords_dictionary:
                         print("\nThat username already exists. Please choose a different username.")
                         new_username = input("\nEnter new username: ")
 
-                    # Ask user for new user's password and ask to confirm password
+                    # Ask for new password and ask to confirm password
+                    # Ask again for both if there is a typo
                     new_password = input("\nEnter new password: ")
                     confirm_password = input("\nEnter it again to confirm the new password: ")
 
@@ -79,42 +80,65 @@ while True:
                 # Add task to tasks.txt
                 elif menu == "a":
 
-                    # Request for 4 inputs for task data items
-                    tasked_user = input("\nWhat is the username of the person the task is assigned to?\n\n")
-
                     # Open up-to-date user.txt file for additional check below
                     with open("user.txt", "r") as file:
                         for line in file:
                             usernames, passwords = line.split(", ")                                         
                             usernames_passwords_dictionary[usernames] = passwords.replace("\n", "")
 
-                    # Additional check if username in user list, only proceed if username already exists
-                    while tasked_user not in usernames_passwords_dictionary:                                        
-                        print("\nThat username does not exist. Please register that user before adding a task under their name.")    
-                        tasked_user = input("\nWhat is the username of the person the task is assigned to?\n\n")    
+                    # Request for 4 inputs for task data items:
 
-                    #TEST
-                    task_title = input("\nWhat is the task's title?\n\n")
-                    task_description = input("\nWhat is the task description?\n\n")
+                    # 1 - tasked user name
+                    tasked_user = input("\nWhat is the username of the person the task is assigned to?\n\n")
 
-                    #
                     while True:
-                        raw_date_input = input("\nWhat is the task's due date (DDMMYYYY)?\n\n")
-                        try:
-                            parsed_date_input = datetime.strptime(raw_date_input, "%d%m%Y")
-                            task_due_date = parsed_date_input.strftime("%d %b %Y")
-                            break
-                        except ValueError:
-                            print("\nInvalid date format. Please try again.")
+                        #REWORK
+                        # If nothing was entered, prompt again
+                        if tasked_user == "":
+                            print("\nYou did not enter anything.\n")
+                            tasked_user = input("\nWhat is the username of the person the task is assigned to?\n\n")
 
-                    # Assign values to 2 task data items
-                    current_date = datetime.now()
-                    date_assigned = current_date.strftime("%d %b %Y")
-                    completed_yes_no = "No"
+                        # Or if user name not in dictionary, prompt again
+                        elif tasked_user != usernames_passwords_dictionary[usernames]:
+                            print("\nThat user does not exist.\n")
+                            tasked_user = input("\nWhat is the username of the person the task is assigned to?\n\n")
 
-                    # Write task data items to tasks.txt
-                    with open("tasks.txt", "a") as file:
-                        file.write(f"\n{tasked_user}, {task_title}, {task_description}, {date_assigned}, {task_due_date}, {completed_yes_no}")
+                        else:
+                            # 2 - Prompt task title input
+                            task_title = input("\nWhat is the task's title?\n\n")
+
+                            # If they enter nothing, prompt again
+                            while task_title == "":
+                                print("\nYou did not enter anything.\n\n.")
+                                task_title = input("\nWhat is the task's title?\n\n")   
+
+                            # 3 - Prompt task description input
+                            task_description = input("\nWhat is the task description?\n\n")
+
+                            # If nothing entered, prompt again
+                            while task_description == "":
+                                print("You did not enter anything.")
+                                task_description = input("\nWhat is the task description?\n\n")
+
+                            #4 - Prompt for date input
+                            while True:
+
+                                raw_date_input = input("\nWhat is the task's due date (DDMMYYYY)?\n\n")
+                                try:
+                                    parsed_date_input = datetime.strptime(raw_date_input, "%d%m%Y")
+                                    task_due_date = parsed_date_input.strftime("%d %b %Y")
+                                    break
+                                except ValueError:
+                                    print("\nInvalid date format. Please try again.")
+
+                                    # Assign values to 2 task data items
+                                    current_date = datetime.now()
+                                    date_assigned = current_date.strftime("%d %b %Y")
+                                    completed_yes_no = "No"
+
+                                    # Write task data items to tasks.txt
+                                    with open("tasks.txt", "a") as file:
+                                        file.write(f"\n{tasked_user}, {task_title}, {task_description}, {date_assigned}, {task_due_date}, {completed_yes_no}")
 
                 # View all tasks in tasks.txt
                 elif menu == "va":
