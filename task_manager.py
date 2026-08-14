@@ -38,20 +38,23 @@ while True:
 
             # =====Menu Section===== #
             
+            # ADD seperate menu for users and not admin:
+            # to remove register user
+            # remove add task 
+
             # Initialise menu loop
             while True:
-                menu = input("\nPlease select one of the following options: " +
-                             "\nr = register user " + 
+                menu = input("\nr = register user " + 
                              "\na = add task " +
                              "\nva = view all tasks " + 
                              "\nvm = view my tasks " +
-                             "\ne = exit\n\n").lower()
+                             "\ne = exit\n\n" +
+                             "Please enter one of the options: ").lower()
 
                 # Register user
                 if menu == "r":
 
-                    # Ask user for new username
-                    new_username = input("\nEnter new username: ")                                          
+                                                              
 
                     # Additional check if username already exists
                     with open("user.txt", "r") as file:
@@ -59,12 +62,17 @@ while True:
                             usernames, passwords = line.split(", ")                                         
                             usernames_passwords_dictionary[usernames] = passwords.replace("\n", "")
 
-                    # ADD 
+                    # Ask user for new username
+                    new_username = input("\nEnter new username: ")
+
+                    # ADD blank "" input check
 
                     # While new user name input is in dictionary, prompt until it is not 
-                    while new_username in usernames_passwords_dictionary[usernames]:
+                    while new_username in usernames_passwords_dictionary:
                         print("\nThat username already exists. Please choose a different username.")
                         new_username = input("\nEnter new username: ")
+
+                    #ADD password length, symbol and letter check
 
                     # Ask for new password and ask to confirm password
                     # Ask again for both if there is a typo
@@ -105,7 +113,7 @@ while True:
 
                         # Or if user name not in dictionary, prompt again
                         elif tasked_user not in usernames_passwords_dictionary[usernames]:
-                            print("\nThat user does not exist.\n")
+                            print("\nPlease enter .\n")
                             tasked_user = input("\nWhat is the username of the person the task is assigned to?\n\n")
 
                         else:
