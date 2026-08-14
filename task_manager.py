@@ -17,7 +17,7 @@ with open("user.txt", "r") as file:
 while True:                                                                              
 
     # While username is not in dictionary, prompt again 
-    username_input = input("\nEnter username: ")
+    username_input = input("\nEnter your username: ")
     if username_input not in usernames_passwords_dictionary:
         print("\nThat username does not exist. Please try again.")
 
@@ -25,36 +25,45 @@ while True:
 
     # If username is in dictionary, prompt for password
     else:
-        password_input = input("\nEnter password: ")
+        password_input = input("\nEnter your password: ")
 
         # While the password does not match in dictionary, prompt again
         while password_input != usernames_passwords_dictionary[username_input]:
-            print("\nInvalid password. Please try again.")
-            password_input = input("\nEnter password: ")
+            print("\nIncorrect password. Please try again.")
+            password_input = input("\nEnter your password: ")
 
         # If password matches, move to menu loop
         else:
-            print(f"\nWelcome to your task manager {username_input}!")
+            print(f"\nWelcome to your Task Manager {username_input}!")
 
             # =====Menu Section===== #
             
+            # ADD admin menu:
+            # add and remove admin permissions for other users
+            # add view overdue tasks option
+
             # ADD seperate menu for users and not admin:
-            # to remove register user
+            # remove register user
             # remove add task 
 
             # Initialise menu loop
             while True:
-                menu = input("\nr = register user " + 
-                             "\na = add task " +
-                             "\nva = view all tasks " + 
-                             "\nvm = view my tasks " +
-                             "\ne = exit\n\n" +
-                             "Please enter one of the options: ").lower()
+                menu = input(
+                            " ________________________________________\n" +
+                            "|______________>>> Menu <<<______________|\n" +
+                            "|                                        |\n" +
+                            "|    r   =   Register user               |\n" + 
+                            "|    a   =   Add task                    |\n" +
+                            "|    va  =   View all tasks              |\n" + 
+                            "|    vm  =   View my tasks               |\n" +
+                            "|    e   =   Logout                      |\n" +
+                            "|________________________________________|\n" +
+                            "|________________________________________|\n" +
+                            "\nPlease enter one of the above options: "
+                            ).lower()
 
                 # Register user
-                if menu == "r":
-
-                                                              
+                if menu == "r":                                 
 
                     # Additional check if username already exists
                     with open("user.txt", "r") as file:
@@ -83,7 +92,10 @@ while True:
                     while confirm_password != new_password:                
                         print("\nPasswords do not match. Please try again.")                                
                         new_password = input("\nEnter new password: ")
-                        confirm_password = input("\nEnter it again to confirm the new password: ") 
+                        confirm_password = input("\nEnter it again to confirm the new password: ")
+
+                    # Let user know its confirmed, then back to menu
+                    print("\nNew user registered! Now back to the menu.\n") 
 
                     # Write input to user.txt file
                     with open("user.txt", "a") as file:
@@ -108,13 +120,16 @@ while True:
 
                         # If nothing was entered, prompt again
                         if tasked_user == "":
-                            print("\nYou did not enter anything.\n")
-                            tasked_user = input("\nWhat is the username of the person the task is assigned to?\n\n")
+                            tasked_user = input(
+                                                "\nYou did not enter anything. " +
+                                                "\nWhat is the username of the person the task is assigned to?\n\n"
+                                                )
 
                         # Or if user name not in dictionary, prompt again
                         elif tasked_user not in usernames_passwords_dictionary[usernames]:
                             print("\nPlease enter .\n")
-                            tasked_user = input("\nWhat is the username of the person the task is assigned to?\n\n")
+                            tasked_user = input("\nUsername not found in system. Please try again" +
+                                                "\nWhat is the username of the person the task is assigned to?\n\n")
 
                         else:
                             # 2 - Prompt task title input
@@ -173,6 +188,8 @@ while True:
                         task_due_date = task[4]
                         completed_yes_no = task[5]
 
+                        # EDIT task output design
+
                         # Required format
                         print(
                             "______________________________________________________" +
@@ -218,7 +235,7 @@ while True:
                                 f"Date assigned:             {date_assigned}\n" + 
                                 f"Due date:                  {task_due_date}\n" + 
                                 f"Task Complete?             {completed_yes_no}\n" + 
-                                f"Task description:\n {task_description}\n" + 
+                                f"Task description:\n{task_description}\n" + 
                                 "_________________________________________________________________________" +
                                 "_______________________________________\n"
                                 )
