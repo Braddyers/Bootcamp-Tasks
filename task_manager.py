@@ -21,6 +21,8 @@ while True:
     if username_input not in usernames_passwords_dictionary:
         print("\nThat username does not exist. Please try again.")
 
+    # ADD elif blank "" input check
+
     # If username is in dictionary, prompt for password
     else:
         password_input = input("\nEnter password: ")
@@ -39,11 +41,11 @@ while True:
             # Initialise menu loop
             while True:
                 menu = input("\nPlease select one of the following options: " +
-                             "\nr - register user " + 
-                             "\na - add task " +
-                             "\nva - view all tasks " + 
-                             "\nvm - view my tasks " +
-                             "\ne - exit\n\n").lower()
+                             "\nr = register user " + 
+                             "\na = add task " +
+                             "\nva = view all tasks " + 
+                             "\nvm = view my tasks " +
+                             "\ne = exit\n\n").lower()
 
                 # Register user
                 if menu == "r":
@@ -57,8 +59,10 @@ while True:
                             usernames, passwords = line.split(", ")                                         
                             usernames_passwords_dictionary[usernames] = passwords.replace("\n", "")
 
+                    # ADD 
+
                     # While new user name input is in dictionary, prompt until it is not 
-                    while new_username in usernames_passwords_dictionary:
+                    while new_username in usernames_passwords_dictionary[usernames]:
                         print("\nThat username already exists. Please choose a different username.")
                         new_username = input("\nEnter new username: ")
 
@@ -89,17 +93,18 @@ while True:
                     # Request for 4 inputs for task data items:
 
                     # 1 - tasked user name
-                    tasked_user = input("\nWhat is the username of the person the task is assigned to?\n\n")
+                    tasked_user = input("\nWhat is the username of the person you are assigning a task to?\n\n")
 
                     while True:
                         #REWORK
+
                         # If nothing was entered, prompt again
                         if tasked_user == "":
                             print("\nYou did not enter anything.\n")
                             tasked_user = input("\nWhat is the username of the person the task is assigned to?\n\n")
 
                         # Or if user name not in dictionary, prompt again
-                        elif tasked_user != usernames_passwords_dictionary[usernames]:
+                        elif tasked_user not in usernames_passwords_dictionary[usernames]:
                             print("\nThat user does not exist.\n")
                             tasked_user = input("\nWhat is the username of the person the task is assigned to?\n\n")
 
@@ -109,7 +114,7 @@ while True:
 
                             # If they enter nothing, prompt again
                             while task_title == "":
-                                print("\nYou did not enter anything.\n\n.")
+                                print("\nYou did not enter anything.")
                                 task_title = input("\nWhat is the task's title?\n\n")   
 
                             # 3 - Prompt task description input
@@ -218,6 +223,8 @@ while True:
                 elif menu == "e":
                     print("\nGoodbye!!!")
                     exit()
+
+                # ADD blank "" input check
 
                 # Print error if invalid input made in menu
                 else:                                                                    
