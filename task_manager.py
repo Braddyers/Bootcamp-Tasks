@@ -8,6 +8,7 @@ from datetime import datetime
 usernames_passwords_dictionary = {}
 
 # Open user.txt and put contents into dictionary (key are usernames, values are passwords)
+# CREATE FUNCTION FOR READING AND EDITING TEXT FILES
 with open("user.txt", "r") as file:
     for line in file:
         usernames, passwords = line.split(", ")
@@ -127,9 +128,11 @@ while True:
 
                         # Or if user name not in dictionary, prompt again
                         elif tasked_user not in usernames_passwords_dictionary[usernames]:
-                            print("\nPlease enter .\n")
-                            tasked_user = input("\nUsername not found in system. Please try again" +
-                                                "\nWhat is the username of the person the task is assigned to?\n\n")
+                            print("\nPlease enter your username.\n")
+                            tasked_user = input(
+                                                "\nUsername not found in system. Please try again" +
+                                                "\nWhat is the username of the person the task is assigned to?\n\n"
+                                                )
 
                         else:
                             # 2 - Prompt task title input
