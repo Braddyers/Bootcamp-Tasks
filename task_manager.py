@@ -42,10 +42,9 @@ while True:
             # =====Menu Section===== #
             
             # ADD to admin menu:
-            # View overdue tasks, and add == "admin"
+            # View overdue tasks,
             # View completed, 
                 # and add username_input == "admin" to both
-
 
             # Initialise menu loop
             while True:
@@ -59,8 +58,8 @@ while True:
                                 "|    at  =   Add task                    |\n" +
                                 "|    mt  =   View my tasks               |\n" +
                                 "|    va  =   View all tasks              |\n" + 
-                                "|    ct  =   View completed tasks        |\n" +
-                                "|    ot  =   View overdue tasks          |\n" +
+                            #   "|    ct  =   View completed tasks        |\n" +
+                            #   "|    ot  =   View overdue tasks          |\n" +
                                 "|    l   =   Logout                      |\n" +
                                 "|________________________________________|\n" +
                                 "|________________________________________|\n" +
@@ -71,14 +70,14 @@ while True:
                 # Outstanding task option, 
                 # User task is completed, then change "no" to "yes", 
                     # and to both add username_input != admin
-                    # and add print("back to main menu")
+                    # and print("back to main menu")
                 else: 
                     menu = input(
                                 " ________________________________________\n" +
                                 "|______________>>> Menu <<<______________|\n" +
                                 "|                                        |\n" +
-                                "|    x   =   View oustanding tasks       |\n" + 
-                                "|    tc  =   Task completed              |\n" + 
+                            #   "|    x   =   View oustanding tasks       |\n" + 
+                            #   "|    tc  =   Task completed              |\n" + 
                                 "|    mt  =   View my tasks               |\n" +
                                 "|    l   =   Logout                      |\n" +
                                 "|________________________________________|\n" +
