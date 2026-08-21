@@ -1,14 +1,14 @@
-#=====importing libraries=====#
+# =====Importing Libraries Section===== #
 
 from datetime import datetime
 
-#=====Login Section=====#
+# =====Login Section===== #
 
 # Initialise dictionary for usernames and passwords
 usernames_passwords_dictionary = {}
 
 # Open user.txt and put contents into dictionary (key are usernames, values are passwords)
-# CREATE FUNCTION FOR READING AND EDITING TEXT FILES
+# CREATE FUNCTIONS/CLASSES (def) FOR READING AND EDITING TEXT FILES
 with open("user.txt", "r") as file:
     for line in file:
         usernames, passwords = line.split(", ")
@@ -41,12 +41,10 @@ while True:
 
             # =====Menu Section===== #
             
-            # ADD admin menu:
-            # add and remove admin permissions for other users
-            # add view overdue tasks option
-            # Edit va - view all tasks to:
-            # to view overdue
-            # to view completed
+            # ADD to admin menu:
+            # View overdue tasks, and add == "admin"
+            # View completed, 
+                # and add username_input == "admin" to both
 
 
             # Initialise menu loop
@@ -59,7 +57,8 @@ while True:
                                 "|                                        |\n" +
                                 "|    r   =   Register user               |\n" + 
                                 "|    at  =   Add task                    |\n" +
-                                "|    vt  =   View all tasks              |\n" + 
+                                "|    mt  =   View my tasks               |\n" +
+                                "|    va  =   View all tasks              |\n" + 
                                 "|    ct  =   View completed tasks        |\n" +
                                 "|    ot  =   View overdue tasks          |\n" +
                                 "|    l   =   Logout                      |\n" +
@@ -68,7 +67,11 @@ while True:
                                 "\nPlease enter one of the above options: "
                                 ).lower()
 
-
+                # Add:
+                # Outstanding task option, 
+                # User task is completed, then change "no" to "yes", 
+                    # and to both add username_input != admin
+                    # and add print("back to main menu")
                 else: 
                     menu = input(
                                 " ________________________________________\n" +
@@ -76,7 +79,7 @@ while True:
                                 "|                                        |\n" +
                                 "|    x   =   View oustanding tasks       |\n" + 
                                 "|    tc  =   Task completed              |\n" + 
-                                "|    vm  =   View my tasks               |\n" +
+                                "|    mt  =   View my tasks               |\n" +
                                 "|    l   =   Logout                      |\n" +
                                 "|________________________________________|\n" +
                                 "|________________________________________|\n" +
@@ -123,7 +126,7 @@ while True:
                         file.write(f"\n{new_username}, {new_password}")
 
                 # Add task to tasks.txt
-                elif menu == "a" and username_input == "admin":
+                elif menu == "at" and username_input == "admin":
 
                     # Open up-to-date user.txt file for additional check below
                     with open("user.txt", "r") as file:
@@ -133,18 +136,21 @@ while True:
 
                     # Request for 4 inputs for task data items:
 
-                    # 1 - tasked user name
-                    tasked_user = input("\nWhat is the username of the person you are assigning a task to?\n\n")
+                    # 1 - Tasked user's name
+                    tasked_user = input("\nWhat is the username of the person you are assigning the task to?\n\n")
 
                     # Additional check if username in user list, only proceed if username already exists
                     while tasked_user not in usernames_passwords_dictionary:                                        
                         print("\nThat username does not exist. Please register that user before adding a task under their name.")    
                         tasked_user = input("\nWhat is the username of the person the task is assigned to?\n\n")    
-                    
+
+                    # 2 - Task title
                     task_title = input("\nWhat is the task's title?\n\n")
-                    
+
+                    # 3 - Task description
                     task_description = input("\nWhat is the task description?\n\n")
-                    
+
+                    # 4 - Task due date and note time/date that task was assigned
                     while True:
                         raw_date_input = input("\nWhat is the task's due date (DDMMYYYY)?\n\n")
                         try:
@@ -154,17 +160,23 @@ while True:
                         except ValueError:
                             print("\nInvalid date format. Please try again.")
                     
-                        # Assign values to 2 task data items
+                    # Assign timestamp when tasks were assigned items
                     current_date = datetime.now()
                     date_assigned = current_date.strftime("%d %b %Y")
+
+                    # Assign "no" to variable, "no" = Task incomplete
                     completed_yes_no = "No"
 
                     # Write task data items to tasks.txt
                     with open("tasks.txt", "a") as file:
-                        file.write(f"\n{tasked_user}, {task_title}, {task_description}, {date_assigned}, {task_due_date}, {completed_yes_no}")
+                        file.write(
+                                f"\n{tasked_user}, {task_title}, {task_description}, {date_assigned}, {task_due_date}, {completed_yes_no}")
+
+                    # Let user know its confirmed, then back to menu
+                    print("\nNew task added! Now back to the menu.\n") 
 
                 # View all tasks in tasks.txt
-                elif menu == "vt" and username_input == "admin":
+                elif menu == "va" and username_input == "admin":
 
                     # Initialize list for task data
                     task_data = []
@@ -204,7 +216,7 @@ while True:
                        
 
                 # View tasks of current logged in user in tasks.txt
-                elif menu == "vm":
+                elif menu == "mt":
 
                     # Initialize list for task data
                     task_data = []
