@@ -42,9 +42,10 @@ while True:
             # =====Menu Section===== #
             
             # ADD to admin menu:
-            # View overdue tasks,
+            # View overdue tasks, and add == "admin"
             # View completed, 
                 # and add username_input == "admin" to both
+
 
             # Initialise menu loop
             while True:
@@ -70,7 +71,7 @@ while True:
                 # Outstanding task option, 
                 # User task is completed, then change "no" to "yes", 
                     # and to both add username_input != admin
-                    # and print("back to main menu")
+                    # and add print("back to main menu")
                 else: 
                     menu = input(
                                 " ________________________________________\n" +
