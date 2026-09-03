@@ -1,0 +1,44 @@
+[
+    {
+        "title": "The Catcher in the Rye",
+        "author": "J.D. Salinger",
+        "fiction_or_nonfiction": "Fiction",
+        "year_published": 1951
+    },
+    {
+        "title": "The Great Gatsby",
+        "author": "F. Scott Fitzgerald",
+        "fiction_or_nonfiction": "Fiction",
+        "year_published": 1925
+    },
+    {
+        "title": "Long Walk to Freedom",
+        "author": "Nelson Mandela",
+        "fiction_or_nonfiction": "Non-fiction",
+        "year_published": 1994
+    },
+    {
+        "title": "Catch-22",
+        "author": "Joseph Heller",
+        "fiction_or_nonfiction": "Fiction",
+        "year_published": 1961
+    },
+    {
+        "title": "Sapiens",
+        "author": "Yaval Noah Harari",
+        "fiction_or_nonfiction": "Non-fiction",
+        "year_published": 2011
+    },
+    {
+        "title": "Charlie and the Chocolate Factory",
+        "author": "Roald Dahl",
+        "fiction_or_nonfiction": "Fiction",
+        "year_published": 1964
+    },
+    {
+        "title": "Lord of the Flies",
+        "author": "William Golding",
+        "fiction_or_nonfiction": "Fiction",
+        "year_published": 1954
+    }
+]
